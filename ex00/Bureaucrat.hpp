@@ -6,7 +6,7 @@
 /*   By: omakran <omakran@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:58:05 by omakran           #+#    #+#             */
-/*   Updated: 2024/02/29 18:52:20 by omakran          ###   ########.fr       */
+/*   Updated: 2024/03/01 15:38:46 by omakran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ class Bureaucrat
 {
     const std::string   _name;
     int                 _grade;
+
+    // Helper function to check if the grade is within valid range.
+    void    checkGrade( void );
 
 public:
     /* ####################################
@@ -34,19 +37,21 @@ public:
     // assignement operator:
    Bureaucrat& operator=( const Bureaucrat& other );
 
+    // Exceptions:
     class GradeTooHighException : public std::exception {
-        const char* what() const throw();
+        public:
+            virtual const char* what() const throw() { return "Grade too high"; }
     };
-
     class GradeTooLowException : public std::exception {
-        const char* what() const throw();
+        public:
+            virtual const char* what() const throw() { return "Grade too low"; }
     };
-
+    
     std::string getName( void ) const;
-    int getGrade( void ) const;
+    int         getGrade( void ) const;
 
-    void incrementGrade( void );
-    void decrementGrade( void );
+    void        incrementGrade( void );
+    void        decrementGrade( void );
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
