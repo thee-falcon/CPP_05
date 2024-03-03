@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omakran <omakran@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: omakran <omakran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:58:03 by omakran           #+#    #+#             */
-/*   Updated: 2024/03/01 15:50:45 by omakran          ###   ########.fr       */
+/*   Updated: 2024/03/03 18:46:54 by omakran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main() {
     try {
-        Bureaucrat bureaucrat("John Doe", 50);
+        Bureaucrat bureaucrat("Omar Makran", 50);
         std::cout << bureaucrat << std::endl;
 
         bureaucrat.incrementGrade();
