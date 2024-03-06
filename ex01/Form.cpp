@@ -6,7 +6,7 @@
 /*   By: omakran <omakran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:32:18 by omakran           #+#    #+#             */
-/*   Updated: 2024/03/04 16:35:16 by omakran          ###   ########.fr       */
+/*   Updated: 2024/03/06 16:49:50 by omakran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,19 +57,18 @@ int Form::getExecuteGrade( void ) const {
     return (_gradeRequiredToExecute);
 }
 
-void    Form::beSigned( const Bureaucrat& bureaucrat ) {
+void    Form::beSigned( Bureaucrat& bureaucrat ) {
     if (bureaucrat.getGrade() <= _gradeRequiredToSign) {
-        this->_isSigned = true;
+        _isSigned = true;
     } else {
         throw GradeTooLowException();
     }
 }
 
-void    Form::signForm( const Bureaucrat& bureaucrat ) {
-    try {
-        beSigned(bureaucrat);
-        std::cout << bureaucrat.getName() << " signed " << _name << std::endl;
-    } catch (const GradeTooLowException& e) {
-        std::cout << bureaucrat.getName() << " couldn't sign " << _name << " because " << e.what() << std::endl;
-    }
+std::ostream& operator<<(std::ostream& os, const Form& form) {
+    os << "Form: " << form.getName()
+       << ", Sign Grade: " << form.getSignGrade()
+       << ", Execute Grade: " << form.getExecuteGrade()
+       << ", Signed: " << (form.getIsSigned() ? "Yes" : "No");
+    return (os);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omakran <omakran@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: omakran <omakran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:57:59 by omakran           #+#    #+#             */
-/*   Updated: 2024/03/01 15:39:24 by omakran          ###   ########.fr       */
+/*   Updated: 2024/03/06 16:48:03 by omakran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
     return (*this);
 }
 
-// ############ Increment and decrement Functions: ##################
+// Increment and decrement Functions: 
 void Bureaucrat::incrementGrade( void ) {
     if (_grade - 1 < 1)
         throw Bureaucrat::GradeTooHighException();
@@ -44,7 +44,6 @@ void Bureaucrat::decrementGrade( void ) {
         throw Bureaucrat::GradeTooLowException();
     _grade++;
 }
-// ###################################################################
 
 // Helper Function:
 void Bureaucrat::checkGrade( void ) {
@@ -66,4 +65,13 @@ int Bureaucrat::getGrade() const {
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat) {
     os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
     return os;
+}
+
+void    Bureaucrat::signForm( Form& Form ) {
+    try {
+        Form.beSigned(*this);
+        std::cout << Form.getName() << " signed " << _name << std::endl;
+    } catch (const GradeTooLowException& e) {
+        std::cout << Form.getName() << " couldn't sign " << _name << " because " << e.what() << std::endl;
+    }
 }

@@ -3,17 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omakran <omakran@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: omakran <omakran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:58:05 by omakran           #+#    #+#             */
-/*   Updated: 2024/03/01 15:38:46 by omakran          ###   ########.fr       */
+/*   Updated: 2024/03/06 16:49:09 by omakran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
-# include <iostream>
+# include <iostream>  // Include for std::ostream
+# include <string>    // Include for std::string
+# include "Form.hpp"
+
+// forward declaration:
+class Form;
 
 class Bureaucrat
 {
@@ -49,6 +54,8 @@ public:
     
     std::string getName( void ) const;
     int         getGrade( void ) const;
+    void        signForm( Form& Form );
+
 
     void        incrementGrade( void );
     void        decrementGrade( void );

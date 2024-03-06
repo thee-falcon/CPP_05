@@ -6,7 +6,7 @@
 /*   By: omakran <omakran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:32:20 by omakran           #+#    #+#             */
-/*   Updated: 2024/03/03 19:49:41 by omakran          ###   ########.fr       */
+/*   Updated: 2024/03/06 16:47:58 by omakran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,7 @@ public:
     int         getSignGrade( void ) const;
     int         getExecuteGrade( void ) const;
 
-    void        beSigned( const Bureaucrat& bureaucrat );
-    void        signForm( const Bureaucrat& bureaucrat );
-
+    void        beSigned( Bureaucrat& bureaucrat );
     // Exceptions:
     class GradeTooHighException : public std::exception {
         public:
