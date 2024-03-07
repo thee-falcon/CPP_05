@@ -6,7 +6,7 @@
 /*   By: omakran <omakran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:57:59 by omakran           #+#    #+#             */
-/*   Updated: 2024/03/06 16:48:03 by omakran          ###   ########.fr       */
+/*   Updated: 2024/03/06 17:03:13 by omakran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,6 @@ int Bureaucrat::getGrade() const {
     return (_grade);
 }
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat) {
-    os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
-    return os;
-}
-
 void    Bureaucrat::signForm( Form& Form ) {
     try {
         Form.beSigned(*this);
@@ -74,4 +69,9 @@ void    Bureaucrat::signForm( Form& Form ) {
     } catch (const GradeTooLowException& e) {
         std::cout << Form.getName() << " couldn't sign " << _name << " because " << e.what() << std::endl;
     }
+}
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat) {
+    os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
+    return os;
 }

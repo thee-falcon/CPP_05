@@ -6,7 +6,7 @@
 /*   By: omakran <omakran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 17:58:05 by omakran           #+#    #+#             */
-/*   Updated: 2024/03/06 16:49:09 by omakran          ###   ########.fr       */
+/*   Updated: 2024/03/06 16:58:40 by omakran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,10 @@ public:
     
     std::string getName( void ) const;
     int         getGrade( void ) const;
+
     void        signForm( Form& Form );
 
-
+    // Increment and decrement Functions: 
     void        incrementGrade( void );
     void        decrementGrade( void );
 };

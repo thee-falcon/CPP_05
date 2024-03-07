@@ -6,7 +6,7 @@
 /*   By: omakran <omakran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:32:18 by omakran           #+#    #+#             */
-/*   Updated: 2024/03/06 16:49:50 by omakran          ###   ########.fr       */
+/*   Updated: 2024/03/06 17:04:52 by omakran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ Form::Form( const std::string& name, int signGrade, int executeGrade) : _name(na
     checkGrade(_gradeRequiredToExecute);
 }
 
-Form::~Form( void ) {
-    
-}
+Form::~Form( void ) {}
 
 Form::Form(const Form& other)
     : _name(other._name), _isSigned(other._isSigned), _gradeRequiredToSign(other._gradeRequiredToSign), _gradeRequiredToExecute(other._gradeRequiredToExecute) {

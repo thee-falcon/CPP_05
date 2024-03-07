@@ -6,7 +6,7 @@
 /*   By: omakran <omakran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:32:28 by omakran           #+#    #+#             */
-/*   Updated: 2024/03/06 16:43:19 by omakran          ###   ########.fr       */
+/*   Updated: 2024/03/07 16:44:57 by omakran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ int main() {
         std::cerr << "Exception: " << e.what() << std::endl;
     }
 
-    return 0;
+    return (0);
 }
