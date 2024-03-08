@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omakran <omakran@student.42.fr>            +#+  +:+       +#+        */
+/*   By: omakran <omakran@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:32:20 by omakran           #+#    #+#             */
-/*   Updated: 2024/03/06 17:05:29 by omakran          ###   ########.fr       */
+/*   Updated: 2024/03/08 18:26:29 by omakran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ public:
         public:
         virtual const char* what() const throw() { return "Grade too low"; }
     };
-    
 };
 
 std::ostream& operator<<( std::ostream& os, const Form& form );
