@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omakran <omakran@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: omakran <omakran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 17:15:08 by omakran           #+#    #+#             */
-/*   Updated: 2024/03/08 18:24:35 by omakran          ###   ########.fr       */
+/*   Updated: 2024/03/08 22:40:21 by omakran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ public:
     virtual ~AForm();
 
     std::string getName( void ) const;
-    bool        getIsSigned( void ) const;
+    bool        getIsSigned( void ) const; 
     int         getSignGrade( void ) const;
     int         getExecuteGrade( void ) const;
 
