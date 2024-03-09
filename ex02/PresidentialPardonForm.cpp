@@ -6,7 +6,7 @@
 /*   By: omakran <omakran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 17:15:30 by omakran           #+#    #+#             */
-/*   Updated: 2024/03/09 22:36:41 by omakran          ###   ########.fr       */
+/*   Updated: 2024/03/09 22:40:49 by omakran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ PresidentialPardonForm::~PresidentialPardonForm() {
 
 void PresidentialPardonForm::execute(const Bureaucrat& executor) const {
     AForm::execute(executor);
+
+    // Check if the executor's grade is high enough to execute the form
+    if (executor.getGrade() > getExecuteGrade()) {
+        throw AForm::GradeTooLowException();
+    }
 
     std::cout << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
