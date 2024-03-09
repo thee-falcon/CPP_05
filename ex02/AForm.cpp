@@ -6,7 +6,7 @@
 /*   By: omakran <omakran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 17:15:02 by omakran           #+#    #+#             */
-/*   Updated: 2024/03/08 23:00:24 by omakran          ###   ########.fr       */
+/*   Updated: 2024/03/09 23:14:56 by omakran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ AForm& AForm::operator=(const AForm& other) {
         // Copy values of non-const members
         _isSign = other._isSign;
     }
-    return *this;
+    return (*this);
 }
 
 // Member Functions:
@@ -50,19 +50,19 @@ void Form::checkGrade(int grade) {
 }
 
 std::string AForm::getName() const {
-    return _name;
+    return (_name);
 }
 
 bool AForm::getIsSigned() const {
-    return _isSign;
+    return (_isSign);
 }
 
 int AForm::getSignGrade() const {
-    return _gradeRequiredToSign;
+    return (_gradeRequiredToSign);
 }
 
 int AForm::getExecuteGrade() const {
-    return _gradeRequiredToExecute;
+    return (_gradeRequiredToExecute);
 }
 
 void AForm::beSigned(Bureaucrat& bureaucrat) {
@@ -76,5 +76,5 @@ void AForm::beSigned(Bureaucrat& bureaucrat) {
 std::ostream& operator<<(std::ostream& os, const AForm& form) {
     os << "Form: " << form.getName() << ", Sign Grade: " << form.getSignGrade()
        << ", Execute Grade: " << form.getExecuteGrade() << ", Signed: " << (form.getIsSigned() ? "Yes" : "No");
-    return os;
+    return (os);
 }
