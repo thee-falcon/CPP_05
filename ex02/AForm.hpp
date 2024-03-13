@@ -6,7 +6,7 @@
 /*   By: omakran <omakran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 17:15:08 by omakran           #+#    #+#             */
-/*   Updated: 2024/03/08 22:40:21 by omakran          ###   ########.fr       */
+/*   Updated: 2024/03/13 21:33:18 by omakran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,10 @@ public:
     class GradeTooLowException : public std::exception {
         public:
         virtual const char* what() const throw () { return "Grade too low"; }
+    };
+    class NotSignedException : public std::exception {
+        public:
+            virtual const char* what() const throw() { return "Form not signed"; }
     };
 };
 

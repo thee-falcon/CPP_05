@@ -6,7 +6,7 @@
 /*   By: omakran <omakran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 17:15:55 by omakran           #+#    #+#             */
-/*   Updated: 2024/03/09 23:05:26 by omakran          ###   ########.fr       */
+/*   Updated: 2024/03/13 21:23:45 by omakran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ public:
     //destructor:
     ~RobotomyRequestForm();
 
-    void        execute( const Bureaucrat& executor) const override;
+    void        execute( const Bureaucrat& executor) const;
     std::string getTarget() const;
 };
 
