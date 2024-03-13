@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omakran <omakran@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: omakran <omakran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 17:15:12 by omakran           #+#    #+#             */
-/*   Updated: 2024/03/08 18:25:41 by omakran          ###   ########.fr       */
+/*   Updated: 2024/03/13 23:50:43 by omakran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,21 @@ int Bureaucrat::getGrade() const {
     return (_grade);
 }
 
-void    Bureaucrat::signForm( Form& Form ) {
+void    Bureaucrat::signForm( AForm& Form ) {
     try {
         Form.beSigned(*this);
         std::cout << Form.getName() << " signed " << _name << std::endl;
     } catch (const GradeTooLowException& e) {
         std::cout << Form.getName() << " couldn't sign " << _name << " because " << e.what() << std::endl;
+    }
+}
+
+void Bureaucrat::executeForm(const AForm& form) const {
+    try {
+        form.execute(*this);
+        std::cout <<  this->getName() << " executed " << form.getName() << std::endl;
+    } catch (std::exception& e) {
+        std::cerr <<  this->getName() << " cannot execute " << form.getName() << " because: " << e.what() << std::endl;
     }
 }
 

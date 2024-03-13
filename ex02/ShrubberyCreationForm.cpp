@@ -6,7 +6,7 @@
 /*   By: omakran <omakran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 17:16:01 by omakran           #+#    #+#             */
-/*   Updated: 2024/03/13 21:35:19 by omakran          ###   ########.fr       */
+/*   Updated: 2024/03/13 23:28:19 by omakran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
 
     // Check if the executor's grade is high enough
     if (executor.getGrade() > this->getExecuteGrade()) {
-        throw Form::GradeTooLowException();
+        throw AForm::GradeTooLowException();
     }
 
     // Create and write to the file

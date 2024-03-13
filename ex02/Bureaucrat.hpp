@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: omakran <omakran@student.1337.ma>          +#+  +:+       +#+        */
+/*   By: omakran <omakran@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 17:15:16 by omakran           #+#    #+#             */
-/*   Updated: 2024/03/08 18:25:00 by omakran          ###   ########.fr       */
+/*   Updated: 2024/03/13 23:25:42 by omakran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 # include <iostream>  // Include for std::ostream
 # include <string>    // Include for std::string
-# include "Form.hpp"
+# include "AForm.hpp"
 
 // forward declaration:
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -55,7 +55,8 @@ public:
     std::string getName( void ) const;
     int         getGrade( void ) const;
 
-    void        signForm( Form& Form );
+    void        signForm( AForm& AForm );
+    void        executeForm( const AForm& AForm) const;
 
     // Increment and decrement Functions: 
     void        incrementGrade( void );
