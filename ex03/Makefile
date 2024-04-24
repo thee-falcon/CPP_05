@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: omakran <omakran@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/03/15 17:22:38 by omakran           #+#    #+#              #
-#    Updated: 2024/03/15 17:54:17 by omakran          ###   ########.fr        #
+#    Created: 2024/03/07 17:16:18 by omakran           #+#    #+#              #
+#    Updated: 2024/03/07 17:19:44 by omakran          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 EXEC = AForm
 
-SRCS = main.cpp Bureaucrat.cpp Form.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp
+SRCS = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp
 
 OBJS := $(SRCS:.cpp=.o)
 
