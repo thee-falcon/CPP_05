@@ -38,6 +38,7 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& target) 
         "presidential pardon",
         "shrubbery creation"
     };
+
     AForm* forms[] = {
         new RobotomyRequestForm(target),
         new PresidentialPardonForm(target),
@@ -48,8 +49,11 @@ AForm* Intern::makeForm(const std::string& formName, const std::string& target) 
         if (formName == formNames[i]) {
             std::cout << "Intern creates " << formName << std::endl;
             return forms[i];
+        } else {
+            delete forms[i];  // Deallocate memory if the form isn't created
         }
     }
+
     std::cout << "Intern cannot create " << formName << " form" << std::endl;
     return nullptr;
 }
