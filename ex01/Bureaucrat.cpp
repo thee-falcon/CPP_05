@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 // constructor:
 Bureaucrat::Bureaucrat( const std::string& name, int grade ) : _name(name), _grade(grade) {
@@ -32,18 +33,21 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
     return (*this);
 }
 
-// Increment and decrement Functions: 
+// ############ Increment and decrement Functions: #####################
 void Bureaucrat::incrementGrade( void ) {
-    if (_grade - 1 < 1)
+    if (_grade - 1 >= 1)
+        _grade--;
+    else
         throw Bureaucrat::GradeTooHighException();
-    _grade--;
 }
 
 void Bureaucrat::decrementGrade( void ) {
-    if (_grade + 1 > 150)
+    if (_grade + 1 <= 150)
+        _grade++;
+    else
         throw Bureaucrat::GradeTooLowException();
-    _grade++;
 }
+// ####################################################################
 
 // Helper Function:
 void Bureaucrat::checkGrade( void ) {
@@ -72,6 +76,8 @@ void    Bureaucrat::signForm( Form& Form ) {
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat) {
-    os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
+    os << bureaucrat.getName();
+    os << ", bureaucrat grade "; 
+    os << bureaucrat.getGrade();
     return (os);
 }

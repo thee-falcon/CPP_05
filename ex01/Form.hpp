@@ -35,7 +35,7 @@ class Form
     const int           _gradeRequiredToExecute;
 
     // Helper function to check if the grade is within valid range.
-    void    checkGrade( int grade );
+    void    checkGrade( int grade_sign, int grade_execute );
         
 public:
     /* ####################################

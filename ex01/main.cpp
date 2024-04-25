@@ -14,6 +14,8 @@
 
 int main() {
     try {
+        std::cout << "#################################\n" << std::endl;
+
         // Testing Bureaucrat
         Bureaucrat bureaucrat("John Doe", 50);
         std::cout << "Initial Bureaucrat:\n" << bureaucrat << std::endl;
@@ -23,10 +25,14 @@ int main() {
 
         bureaucrat.decrementGrade();
         std::cout << "After decrementing grade:\n" << bureaucrat << std::endl;
+        
+        std::cout << "\n#################################" << std::endl;
 
         // Testing Form
         Form form("Tax Form", 75, 60);
         std::cout << "\nInitial Form:\n" << form << std::endl;
+
+        std::cout << "\n=================================\n" << std::endl;
 
         bureaucrat.signForm(form);
         std::cout << "After bureaucrat signing the form:\n" << form << std::endl;
