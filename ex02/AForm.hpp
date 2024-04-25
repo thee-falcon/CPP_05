@@ -21,14 +21,13 @@ class Bureaucrat;
 // abstract class.
 class AForm
 {
-protected:
     const std::string   _name;
     bool                _isSign;
     const int           _gradeRequiredToSign;
     const int           _gradeRequiredToExecute;
 
     // Helper function to check if the grade is within the valid range.
-    void    checkGrade(int grade);
+    void    checkGrade( int grade_sign, int grade_execute );
     
 public:
     /* ####################################
@@ -45,7 +44,7 @@ public:
     virtual ~AForm();
 
     std::string getName( void ) const;
-    bool        getIsSigned( void ) const; 
+    bool        getIsSigned( void ) const;
     int         getSignGrade( void ) const;
     int         getExecuteGrade( void ) const;
 
@@ -57,12 +56,12 @@ public:
     // Exceptions:
     class GradeTooHighException : public std::exception {
         public:
-        virtual const char* what() const throw () { return "Grade too high"; }
+        virtual const char* what() const throw () { return "AForm Grade too high"; }
     };
     
     class GradeTooLowException : public std::exception {
         public:
-        virtual const char* what() const throw () { return "Grade too low"; }
+        virtual const char* what() const throw () { return "AForm Grade too low"; }
     };
     class NotSignedException : public std::exception {
         public:
@@ -70,6 +69,6 @@ public:
     };
 };
 
-std::ostream& operator<<( std::ostream& os, const AForm& form);
+std::ostream& operator<<( std::ostream& os, const AForm& aform);
 
 #endif

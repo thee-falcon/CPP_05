@@ -32,18 +32,21 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
     return (*this);
 }
 
-// Increment and decrement Functions: 
+// ############ Increment and decrement Functions: #####################
 void Bureaucrat::incrementGrade( void ) {
-    if (_grade - 1 < 1)
+    if (_grade - 1 >= 1)
+        _grade--;
+    else
         throw Bureaucrat::GradeTooHighException();
-    _grade--;
 }
 
 void Bureaucrat::decrementGrade( void ) {
-    if (_grade + 1 > 150)
+    if (_grade + 1 <= 150)
+        _grade++;
+    else
         throw Bureaucrat::GradeTooLowException();
-    _grade++;
 }
+// ####################################################################
 
 // Helper Function:
 void Bureaucrat::checkGrade( void ) {
@@ -72,12 +75,13 @@ void    Bureaucrat::signForm( AForm& Form ) {
 }
 
 void Bureaucrat::executeForm(const AForm& form) const {
-    try {
+    if (_grade > form.getSignGrade())
+        std::cout << "Bureaucrat is too low\n";
+    if (!form.getIsSigned())
+        std::cout << "Form not Signed!\n";
+    else
+        std::cout << _name << " executed " << form.getName() << std::endl;
         form.execute(*this);
-        std::cout <<  this->getName() << " executed " << form.getName() << std::endl;
-    } catch (std::exception& e) {
-        std::cerr <<  this->getName() << " cannot execute " << form.getName() << " because: " << e.what() << std::endl;
-    }
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat) {
