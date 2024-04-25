@@ -13,16 +13,19 @@
 #include "Intern.hpp"
 
 int main() {
-    {
-    Intern someRandomIntern;
-    AForm* rrf;
+    try {
+        Intern someRandomIntern;
+        AForm* rrf;
 
-    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-    if (rrf != NULL) {
-        std::cout << "Has ben created " << rrf->getName() << std:: endl;
-    }
-    delete rrf;
+        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+        if (rrf != nullptr) {
+            std::cout << "Has been created " << rrf->getName() << std::endl;
+            delete rrf;  // Free the memory.
+        }
+
+    } catch(const std::exception& e) {
+        std::cout << "Exception caught: " << e.what() << std::endl;
     }
 
-    return (0);
+    return 0;
 }

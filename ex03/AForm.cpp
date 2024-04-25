@@ -15,6 +15,7 @@
 // Constructor:
 AForm::AForm(const std::string& name, int signGrade, int executeGrade)
     : _name(name), _isSign(false), _gradeRequiredToSign(signGrade), _gradeRequiredToExecute(executeGrade) {
+        checkGrade(_gradeRequiredToExecute, _gradeRequiredToSign);
 }
 
 // Destructor:
@@ -39,10 +40,11 @@ AForm& AForm::operator=(const AForm& other) {
 }
 
 // Member Functions:
-void AForm::checkGrade(int grade) {
-    if (grade < 1) {
+void AForm::checkGrade( int grade_sign, int grade_execute ) {
+    if (grade_execute < 1 || grade_sign < 1) {
         throw GradeTooHighException();
-    } else if (grade > 150) {
+    }
+    if (grade_execute > 150 || grade_sign > 150) {
         throw GradeTooLowException();
     }
 }
@@ -64,11 +66,10 @@ int AForm::getExecuteGrade() const {
 }
 
 void AForm::beSigned(Bureaucrat& bureaucrat) {
-    if (bureaucrat.getGrade() <= _gradeRequiredToSign) {
-        _isSign = true;
-    } else {
-        throw AForm::GradeTooLowException();
-    }
+    if (bureaucrat.getGrade() > _gradeRequiredToSign)
+        throw GradeTooLowException();
+    else
+        this->_isSign = true;
 }
 
 void AForm::execute(const Bureaucrat& executor) const {
@@ -77,12 +78,19 @@ void AForm::execute(const Bureaucrat& executor) const {
     } else if (executor.getGrade() > _gradeRequiredToExecute) {
         throw AForm::GradeTooLowException();
     }
+    std::cout << executor.getName() << " executed " << _name << std::endl;
     // Execute the specific action for each concrete form
     // This function should be overridden in each concrete form class
 }
 
-std::ostream& operator<<(std::ostream& os, const AForm& form) {
-    os << "Form: " << form.getName() << ", Sign Grade: " << form.getSignGrade()
-       << ", Execute Grade: " << form.getExecuteGrade() << ", Signed: " << (form.getIsSigned() ? "Yes" : "No");
+std::ostream& operator<<(std::ostream& os, const AForm& aform) {
+    os << "AForm Name: " << aform.getName();
+    os << "\nAForm Sign: ";
+    os << aform.getIsSigned();
+    os << "\nAForm Sign Grade: ";
+    os << aform.getSignGrade();
+    os << "\nAForm Execute Grade: ";
+    
+    os << aform.getExecuteGrade();
     return (os);
 }

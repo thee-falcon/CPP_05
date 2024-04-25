@@ -13,10 +13,10 @@
 #ifndef INTERN_HPP
 # define INTERN_HPP
 
+# include "AForm.hpp"
 # include "RobotomyRequestForm.hpp"
 # include "ShrubberyCreationForm.hpp"
 # include "PresidentialPardonForm.hpp"
-# include "AForm.hpp"
 
 class Intern
 {
@@ -35,7 +35,14 @@ public:
     // assignment operator:
     Intern& operator=( const Intern& other );
 
-    AForm* makeForm(const std::string& formName, const std::string& target) const;
+    AForm* makeForm(const std::string& formName, const std::string& target);
+        class InternException : public std::exception
+        {
+            public:
+                const char *what() const throw(){
+                    return "Intern Failed\nForm not found";
+                }
+        };
 };
 
 #endif

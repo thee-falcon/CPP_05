@@ -31,29 +31,34 @@ Intern &Intern::operator=(const Intern &other) {
     return (*this);
 }
 
-AForm* Intern::makeForm(const std::string& formName, const std::string& target) const {
+AForm* Intern::makeForm(const std::string& formName, const std::string& target){
+    AForm *obj = NULL;
+    int index = 2;  // Initialize to the last index
 
-    std::string formNames[] = {
-        "robotomy request",
-        "presidential pardon",
-        "shrubbery creation"
-    };
+    std::string s[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
 
-    AForm* forms[] = {
-        new RobotomyRequestForm(target),
-        new PresidentialPardonForm(target),
-        new ShrubberyCreationForm(target)
-    };
-    
-    for (int i = 0; i < 3; i++) {
-        if (formName == formNames[i]) {
-            std::cout << "Intern creates " << formName << std::endl;
-            return forms[i];
-        } else {
-            delete forms[i];  // Deallocate memory if the form isn't created
+    for (int i = 0; i < 3; i++){
+        if (s[i] == formName) {
+            index = i;
+            break;  // Exit loop as soon as the formName is found
         }
     }
 
-    std::cout << "Intern cannot create " << formName << " form" << std::endl;
-    return nullptr;
+    switch (index) {
+        case 0:
+            std::cout << "Intern creates " << formName << std::endl;
+            obj = new ShrubberyCreationForm(target);
+            break;
+        case 1:
+            std::cout << "Intern creates " << formName << std::endl;
+            obj = new RobotomyRequestForm(target);
+            break;
+        case 2:
+            std::cout << "Intern creates " << formName << std::endl;
+            obj = new PresidentialPardonForm(target);
+            break;
+        default:
+            throw Intern::InternException();
+    }
+    return obj;
 }
