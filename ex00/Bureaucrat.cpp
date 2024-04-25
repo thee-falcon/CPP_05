@@ -34,15 +34,17 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
 
 // ############ Increment and decrement Functions: #####################
 void Bureaucrat::incrementGrade( void ) {
-    if (_grade - 1 < 1)
+    if (_grade - 1 >= 1)
+        _grade--;
+    else
         throw Bureaucrat::GradeTooHighException();
-    _grade--;
 }
 
 void Bureaucrat::decrementGrade( void ) {
-    if (_grade + 1 > 150)
+    if (_grade + 1 <= 150)
+        _grade++;
+    else
         throw Bureaucrat::GradeTooLowException();
-    _grade++;
 }
 // ####################################################################
 
@@ -64,6 +66,8 @@ int Bureaucrat::getGrade() const {
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat) {
-    os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
+    os << bureaucrat.getName();
+    os << ", bureaucrat grade "; 
+    os << bureaucrat.getGrade();
     return (os);
 }
